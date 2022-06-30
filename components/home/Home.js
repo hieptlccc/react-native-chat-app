@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {CometChatUI} from '../../cometchat-pro-react-native-ui-kit-3/src/index';
+import {CometChatUI} from '../../cometchat-pro-react-native-ui-kit/CometChatWorkspace/src/index';
 
 const Home = () => {
   return (
