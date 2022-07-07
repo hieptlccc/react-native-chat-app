@@ -1,21 +1,26 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {CometChatUI} from '../../cometchat-pro-react-native-ui-kit/CometChatWorkspace/src/index';
+import {
+  CometChatUI,
+  CometChatUserListWithMessages,
+  CometChatMessages,
+} from '../../cometchat-pro-react-native-ui-kit/CometChatWorkspace/src/index';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Home = () => {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <CometChatUI />
-    </View>
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName={'CometChatUI'}>
+      <Stack.Screen name="CometChatUI" component={CometChatUI} />
+      <Stack.Screen
+        name="UserListWithMessages"
+        component={CometChatUserListWithMessages}
+      />
+      <Stack.Screen name="CometChatMessages" component={CometChatMessages} />
+    </Stack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#F1EFE3',
-    flex: 1,
-    position: 'relative',
-  },
-});
 
 export default Home;
