@@ -13,7 +13,6 @@ import MCIIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../../resources/theme';
 import { heightRatio } from '../../utils/consts';
 
-
 const Tab = createBottomTabNavigator();
 
 function CometChatUI() {
@@ -24,11 +23,16 @@ function CometChatUI() {
     checkRestrictions();
   }, []);
   const checkRestrictions = async () => {
-    let isChatEnabled = await contextRef.current.state.FeatureRestriction.isRecentChatListEnabled();
-    let isGroupListEnabled = await contextRef.current.state.FeatureRestriction.isGroupListEnabled();
-    let isUserSettingsEnabled = await contextRef.current.state.FeatureRestriction.isUserSettingsEnabled();
-    let isUserListEnabled = await contextRef.current.state.FeatureRestriction.isUserListEnabled();
-    let isCallListEnabled = await contextRef.current.state.FeatureRestriction.isCallListEnabled();
+    let isChatEnabled =
+      await contextRef.current.state.FeatureRestriction.isRecentChatListEnabled();
+    let isGroupListEnabled =
+      await contextRef.current.state.FeatureRestriction.isGroupListEnabled();
+    let isUserSettingsEnabled =
+      await contextRef.current.state.FeatureRestriction.isUserSettingsEnabled();
+    let isUserListEnabled =
+      await contextRef.current.state.FeatureRestriction.isUserListEnabled();
+    let isCallListEnabled =
+      await contextRef.current.state.FeatureRestriction.isCallListEnabled();
     setTabs({
       isChatEnabled,
       isGroupListEnabled,
@@ -42,6 +46,7 @@ function CometChatUI() {
       {tabs ? (
         <Tab.Navigator
           screenOptions={({ route }) => ({
+            headerShown: false,
             tabBarIcon: ({ color }) => {
               let iconName;
 
